@@ -1,15 +1,11 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-// import CounterVue from "./components/CounterFirst.vue";
-import IndecisionApp from "./components/IndecisionApp.vue";
+import PokemonPage from "./pages/PokemonPage.vue";
 </script>
 
 <template>
-  <!--<img alt="Vue logo" src="./assets/logo.png" /> -->
-  <IndecisionApp />
-  <!-- <CounterVue title="Contador" :start="7" /> -->
-  <!-- v-bind:start -->
+  <PokemonPage></PokemonPage>
 </template>
 
 <style>

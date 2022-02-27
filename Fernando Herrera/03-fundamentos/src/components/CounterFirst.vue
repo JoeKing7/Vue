@@ -6,6 +6,12 @@ export default {
       type: Number,
       //required: true,
       default: 21,
+      validator(value) {
+        return value > 0;
+      },
+      // default() {
+      //   return { message: 'hello' }
+      // }
     },
   },
   data() {

@@ -1,0 +1,72 @@
+### ESLint and Prettier with Vite and Vue.js 3 ###
+##################################################
+source: https://vueschool.io/articles/vuejs-tutorials/eslint-and-prettier-with-vite-and-vue-js-3/
+
+npm install --save-dev --save-exact prettier
+create a config file for prettier: .prettierrc.json
+npm install --save-dev eslint eslint-plugin-vue
+configure ESLint by creating a .eslintrc.js:
+  module.exports = {
+    env: {
+      node: true,
+    },
+    extends: [
+      'eslint:recommended',
+      'plugin:vue/vue3-recommended',
+    ],
+    rules: {
+      // override/add rules settings here, such as:
+      // 'vue/no-unused-vars': 'error'
+    }
+  }
+npm install eslint-config-prettier --save-dev
+  And register the config in .eslintrc.js:
+  //.eslintrc.js
+  extends: [
+    'eslint:recommended',
+    "plugin:vue/vue3-recommended",
+    "prettier"
+  ],
+
+---- Running from the Command Line ----
+"scripts":{
+  //...
+  "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+  "format": "prettier .  --write"
+}
+----------------------------------------
+## Setting up ESLint and Prettier with VS Code for Vue 3 ##
+##################
+// Code/User/settings.json
+"vetur.validation.template": false
+
+And so to fix the issue we can do one of 2 things.
+
+    We could turn the vue/require-default-prop rule off in the .eslintrc.js file if we want to allow props without default values.
+
+// Code/User/settings.json
+rules: {
+  //...
+  "vue/require-default-prop": "off",
+},
+
+We can tell VS code to fix the code, Prettier to reformat the code or for ESLint to auto correct fixable issues. 
+// Code/User/settings.json
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+}
+
+We should also ensure that our vue and js files have prettier configured as the default formatter with the following settings:
+
+// Code/User/settings.json
+"[vue]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[javascript]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+
+
