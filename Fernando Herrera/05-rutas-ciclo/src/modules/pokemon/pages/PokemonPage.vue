@@ -28,8 +28,8 @@ export default {
     }
   },
   created() {
-    // const { pokeid } = this.$route.params
-    // this.id = pokeid
+    //-- const { pokeid } = this.$route.params
+    //-- this.id = pokeid
     this.getPokemon()
   },
   watch: {
